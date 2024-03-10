@@ -11,6 +11,9 @@ const Form: React.FC<FormProps> = ({ lbl, type, onSubmit }) => {
 
     const handleSubmit = (event: { preventDefault: () => void }) => {
         event.preventDefault();
+        if (inputValue.trim() === "") {
+            return;
+        }
         onSubmit(inputValue);
         setInputValue("");
     };
