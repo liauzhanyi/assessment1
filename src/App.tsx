@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Form from "./components/Form";
 import DisplayTable from "./components/DisplayTable";
+import "./App.css";
 
 function App() {
     const [authors, setAuthors] = useState<string[]>([]);
@@ -20,9 +21,18 @@ function App() {
 
     return (
         <>
-            <Form lbl="author name" type="text" onSubmit={addAuthor} />
-            <DisplayTable lbl="Author Names Submitted" items={authors} />
-            <DisplayTable lbl="List of Users" items={users} />
+            <div className="main-container">
+                <div className="form-authors-container">
+                    <Form lbl="author name" type="text" onSubmit={addAuthor} />
+                    <DisplayTable
+                        lbl="Author Names Submitted"
+                        items={authors}
+                    />
+                </div>
+                <div className="api-users">
+                    <DisplayTable lbl="List of Users" items={users} />
+                </div>
+            </div>
         </>
     );
 }
